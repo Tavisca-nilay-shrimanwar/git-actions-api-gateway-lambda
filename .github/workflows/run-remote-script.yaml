@@ -1,0 +1,17 @@
+name: Execute remote script
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: run remote script
+        run: |
+          curl https://raw.githubusercontent.com/Tavisca-nilay-shrimanwar/logging-and-notification/main/hello-world.py | python -
